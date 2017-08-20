@@ -19,7 +19,41 @@ class ViewController: UIViewController {
     @IBOutlet var x2: UIButton!
     @IBOutlet var label: UILabel!
     @IBAction func y1(_ sender: Any) {
-        print(signupmode)
+        if uname.text == "" || pwd.text == "" {
+            print("enter username and password")
+            
+        }else{
+            if signupmode{
+                let user = PFUser()
+                user.username = uname.text
+                user.password = pwd.text
+                user.signUpInBackground(block: { (success, error) in
+                    if error != nil {
+                        print("error signing up")
+                        
+                    }else{
+                        
+                        print("user signed up")
+                    }
+                })
+                
+                
+            }else{
+                PFUser.logInWithUsername(inBackground: uname.text!, password: pwd.text!, block: { (user, error) in
+                    if error != nil{
+                        
+                        print("error logging in")
+                    }else{
+                        
+                        print("user logged in ")
+                    }
+                })
+                
+                
+            }
+            
+            
+        }
     }
     @IBAction func y2(_ sender: Any) {
         if signupmode{
@@ -44,7 +78,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print("hello my name is akin")
+      //  print("hello my name is akin")
         
             }
 
