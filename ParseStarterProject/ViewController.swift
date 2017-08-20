@@ -11,6 +11,16 @@ import UIKit
 import Parse
 
 class ViewController: UIViewController {
+    @IBOutlet var uname: UITextField!
+    @IBOutlet var pwd: UITextField!
+    @IBOutlet var x1: UIButton!
+    @IBOutlet var x2: UIButton!
+    @IBOutlet var label: UILabel!
+    @IBAction func y1(_ sender: Any) {
+    }
+    @IBAction func y2(_ sender: Any) {
+    }
+    
     
 
 
