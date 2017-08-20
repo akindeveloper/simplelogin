@@ -11,14 +11,30 @@ import UIKit
 import Parse
 
 class ViewController: UIViewController {
+    var signupmode = true
+    
     @IBOutlet var uname: UITextField!
     @IBOutlet var pwd: UITextField!
     @IBOutlet var x1: UIButton!
     @IBOutlet var x2: UIButton!
     @IBOutlet var label: UILabel!
     @IBAction func y1(_ sender: Any) {
+        print(signupmode)
     }
     @IBAction func y2(_ sender: Any) {
+        if signupmode{
+            x1.setTitle("Login", for: [])
+            x2.setTitle("Signup", for: [])
+            label.text = "Don't have an account?"
+            signupmode = false
+        }else{
+            x1.setTitle("Signup", for: [])
+            x2.setTitle("Login", for: [])
+            label.text = "Already have an account?"
+            signupmode = true
+            
+            
+        }
     }
     
     
